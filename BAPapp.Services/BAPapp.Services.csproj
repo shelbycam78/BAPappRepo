@@ -70,10 +70,6 @@
       <Project>{400cb1b1-dbd6-429b-b509-b6b5822808a3}</Project>
       <Name>BAPapp.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BAPapp.WebMVC\BAPapp.WebMVC.csproj">
-      <Project>{1186A0D8-31BD-468E-A7D5-3BBBB9ED181C}</Project>
-      <Name>BAPapp.WebMVC</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

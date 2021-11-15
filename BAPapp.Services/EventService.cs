@@ -67,7 +67,7 @@ namespace BAPapp.Services
                 var entity =
                         ctx
                             .Events
-                            .Single(e => e.EventDate == eventDate);
+                            .Single(e => e.EventDate == eventDate && e.OwnerId== _userId);
                 return
                     new EventDetail
                     {
@@ -93,7 +93,7 @@ namespace BAPapp.Services
                 var entity =
                         ctx
                             .Events
-                            .Single(e => e.EventId == model.EventId);
+                            .Single(e => e.EventDate == model.EventDate && e.OwnerId==_userId);
 
                 entity.EventId = model.EventId;
                 entity.EventDate = model.EventDate;

@@ -281,6 +281,10 @@
       <Project>{400cb1b1-dbd6-429b-b509-b6b5822808a3}</Project>
       <Name>BAPapp.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BAPapp.Services\BAPapp.Services.csproj">
+      <Project>{ABAC447F-F2FF-45FE-AC8F-3459B058D3EC}</Project>
+      <Name>BAPapp.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

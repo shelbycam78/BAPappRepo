@@ -1,4 +1,6 @@
-﻿using BAPapp.Models;
+﻿using BAPapp.Data;
+using BAPapp.Models;
+using BAPapp.Services;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -11,10 +13,7 @@ namespace BAPapp.WebMVC.Controllers
     [Authorize]
     public class EventController : Controller
     {
-        public EventService(Guid userId)
-        {
-            _userId = userId;
-        }
+    
         // GET: Event
         public ActionResult Index()
         {
@@ -36,8 +35,10 @@ namespace BAPapp.WebMVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            var service=CreateEventService();
-         
+            var service = CreateEventService();
+
+            service.CreateEvent(model);
+
 
             if (service.CreateEvent(model))
             {
@@ -47,20 +48,28 @@ namespace BAPapp.WebMVC.Controllers
 
             ModelState.AddModelError("", "Event could not be created");
             return View(model);
-            
+
         }
-        public ActionResult Details(string eventId)
+        public ActionResult Details(DateTime eventDate)
         {
             var svc = CreateEventService();
-            var model = svc.GetEventByDate();
+            var model = svc.GetEventByDate(eventDate);
 
             return View(model);
         }
+        private EventService CreateEventService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new EventService(userId);
+            return service;
+        }
 
-        public ActionResult Edit(string eventId)
+
+
+        public ActionResult Edit(DateTime eventDate)
         {
             var service = CreateEventService();
-            var detail = service.GetEventByDate();
+            var detail = service.GetEventByDate(eventDate);
             var model =
                 new EventEdit
                 {
@@ -101,10 +110,10 @@ namespace BAPapp.WebMVC.Controllers
             ModelState.AddModelError("", "Your event could not be updated.");
             return View(model);
         }
-        public ActionResult Delete(string eventId)
+        public ActionResult Delete(DateTime eventDate)
         {
             var svc = CreateEventService();
-            var model = svc.GetEventByDate();
+            var model = svc.GetEventByDate(eventDate);
 
             return View(model);
         }
@@ -123,10 +132,7 @@ namespace BAPapp.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        private Event CreateEventService()
-        {
-            return View();
-        }
+        
 
     }
 }
