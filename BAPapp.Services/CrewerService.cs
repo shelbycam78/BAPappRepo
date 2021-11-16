@@ -26,6 +26,7 @@ namespace BAPapp.Services
                 Email = model.Email,
                 Phone = model.Phone,
                 
+                
             };
             using (var ctx = new ApplicationDbContext())
             {

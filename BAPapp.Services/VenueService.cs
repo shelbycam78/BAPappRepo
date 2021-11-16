@@ -1,5 +1,6 @@
 ﻿using BAPapp.Data;
 using BAPapp.Models;
+using BAPapp.Models.Venue;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,9 +13,12 @@ namespace BAPapp.Services
 {
     public class VenueService
     {
-        private readonly ApplicationDbContext _context = new ApplicationDbContext();
-
-        //create
+        private readonly Guid _userId;
+        public VenueService(Guid userId)
+        {
+            _userId = userId;
+        }
+                //create
         public bool CreateVenue(VenueCreate model)
         {
             Venue entity = new Venue
@@ -22,42 +26,90 @@ namespace BAPapp.Services
                 VenueId = model.VenueId,
                 VenueName = model.VenueName,
                 VenueLocation = model.VenueLocation,
-                CrewerId = model.CrewerId,
                 PointOfContact = model.PointOfContact
             };
-            _context.Venues.Add(entity);
-            return _context.SaveChanges() == 1;
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Venues.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
         }
 
         //get all
-        public List<VenueDetail> GetAllVenues()
+        public IEnumerable<VenueListItem> GetVenues()
         {
-            var venueEntities = _context.Venues.ToList();
-            var venueList = venueEntities.Select(v => new VenueDetail
+            using (var ctx = new ApplicationDbContext())
             {
-                VenueId = v.VenueId,
-                VenueName = v.VenueName,
-                VenueLocation = v.VenueLocation,
-                CrewerId= v.CrewerId,
-                PointOfContact = v.PointOfContact
-            }).ToList();
-            return venueList;
+                var query =
+                  ctx
+                      .Venues
+                      .Where(v => v.OwnerId == _userId)
+                      .Select(
+                          v =>
+                              new VenueListItem
+                              {
+                                  VenueId = v.VenueId,
+                                  VenueName = v.VenueName,
+                                  VenueLocation = v.VenueLocation,
+                                  PointOfContact = v.PointOfContact
+                              });
+                return query.ToArray();
+            }
         }
         //get by name
         public VenueDetail GetVenueByName(string venueName)
         {
-            var venueEntity = _context.Venues.Find(venueName);
-            if (venueEntity == null)
-                return null;
-            var venueDetail = new VenueDetail
+            using (var ctx = new ApplicationDbContext())
             {
-                VenueId = venueEntity.VenueId,
-                VenueName = venueEntity.VenueName,
-                VenueLocation = venueEntity.VenueLocation,
-                CrewerId = venueEntity.CrewerId,
-                PointOfContact = venueEntity.PointOfContact
-            };
-            return venueDetail;
+                var entity =
+                        ctx
+                            .Venues
+                            .Single(v => v.VenueName == venueName && v.OwnerId == _userId);
+                return
+                       new VenueDetail
+                       {
+                           VenueId = entity.VenueId,
+                           VenueName = entity.VenueName,
+                           VenueLocation = entity.VenueLocation,
+                           PointOfContact = entity.PointOfContact,
+
+                       };
+            }
+        
         }
+        public bool UpdateVenue(VenueEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                        ctx
+                            .Venues
+                            .Single(v => v.VenueName == model.VenueName && v.OwnerId == _userId);
+
+                entity.VenueId = model.VenueId;
+                entity.VenueName = model.VenueName;
+                entity.VenueLocation = model.VenueLocation;
+                entity.PointOfContact = model.PointOfContact;
+
+                return ctx.SaveChanges() == 1;
+            }
+
+        }
+        public bool DeleteVenue(string venueName)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                        ctx
+                            .Venues
+                            .Single(v => v.VenueName == venueName);
+                ctx.Venues.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+
+            }
+
+        }
+
     }
 }

@@ -1,4 +1,8 @@
 ﻿using BAPapp.Data;
+using BAPapp.Models;
+using BAPapp.Models.Venue;
+using BAPapp.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,107 +15,121 @@ namespace BAPapp.WebMVC.Controllers
 {
     public class VenueController : Controller
     {
-        private ApplicationDbContext _db = new ApplicationDbContext();
-
-        // GET: Venue
         public ActionResult Index()
         {
-            ICollection<Venue> venuesList = _db.Venues.ToList();
-            ICollection<Venue> orderedList = venuesList.OrderBy(ven => ven.VenueName).ToList();
-            return View(orderedList);
-           }
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new VenueService(userId);
+            var model = service.GetVenues();
+            
+      
+            return View(model);
+        }
 
         public ActionResult Create()
         {
             return View();
         }
+        //POST:  Crewer
 
-        //POST: Venue
         [HttpPost]
-        public ActionResult Create(Venue venue)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(VenueCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateVenueService();
+
+            service.CreateVenue(model);
+
+            if (service.CreateVenue(model))
             {
-                _db.Venues.Add(venue);
-                _db.SaveChanges();
+                TempData["SaveResult"] = "A venue was created.";
                 return RedirectToAction("Index");
             }
-            return View(venue);
+
+            ModelState.AddModelError("", "Venue could not be created");
+            return View(model);
         }
 
-        //GET: Delete
-        //Venue/Delete/VenueId
-        public ActionResult Delete(string venueId)
+        public ActionResult Details(string venueName)
         {
-            if (venueId == null)
+            var svc = CreateVenueService();
+            var model = svc.GetVenueByName(venueName);
+
+            return View(model);
+
+        }
+        private VenueService CreateVenueService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new VenueService(userId);
+            return service;
+        }
+
+        //GET:  Edit
+        //Crewer/Edit/CrewerId
+        public ActionResult Edit(string venueName)
+        {
+            var service = CreateVenueService();
+            var detail = service.GetVenueByName(venueName);
+            var model =
+                new VenueEdit
+                {
+                    VenueId = detail.VenueId,
+                    VenueName = detail.VenueName,
+                    VenueLocation = detail.VenueLocation,
+                    PointOfContact = detail.PointOfContact,
+                };
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(string venueName, VenueEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.VenueName != venueName)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                ModelState.AddModelError("", "Venue Name mismatch.");
+                return View(model);
             }
-            Venue venue = _db.Venues.Find(venueId);
-            if (venue == null)
+
+            var service = CreateVenueService();
+
+            if (service.UpdateVenue(model))
             {
-                return HttpNotFound();
+                TempData["SaveResult"] = "The venue was updated.";
+                return RedirectToAction("Index");
             }
-            return View(venue);
+
+            ModelState.AddModelError("", "The venue could not be updated.");
+            return View(model);
+
+        }
+        //GET:  Delete
+        //Crewer/Delete/CrewerId
+        public ActionResult Delete(string name)
+        {
+            var svc = CreateVenueService();
+            var model = svc.GetVenueByName(name);
+
+            return View(model);
         }
 
         //POST: Delete
-        //Venue/Delete/VenueId
+        //Crewer/Delete/CrewerId
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirm(string venueId)
+        public ActionResult DeleteVenue(string name)
         {
-            Venue venue = _db.Venues.Find(venueId);
-            _db.Venues.Remove(venue);
-            _db.SaveChanges();
+            var service = CreateVenueService();
+
+            service.DeleteVenue(name);
+
+            TempData["SeveResult"] = "The venue was deleted";
+
             return RedirectToAction("Index");
         }
 
-        //GET: Edit
-        //Venue/Edit/VenueId
-        public ActionResult Edit(string venueId)
-        {
-            if (venueId == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Venue venue = _db.Venues.Find(venueId);
-            if (venue == null)
-            {
-                return HttpNotFound();
-            }
-            return View(venue);
-        }
-
-        //POST: Edit
-        //Venue/Edit/VenueId
-        [HttpPost, ActionName("Edit")]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(Venue venue)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Entry(venue).State = EntityState.Modified;
-                _db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(venue);
-        }
-
-        //GET: Details
-        //Venue/Details/VenueId
-        public ActionResult Details(string venueId)
-        {
-            if (venueId==null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Venue venue = _db.Venues.Find(venueId);
-            if (venue==null)
-            {
-                return HttpNotFound();
-            }
-            return View(venue);
-        }
     }
-} 
+}

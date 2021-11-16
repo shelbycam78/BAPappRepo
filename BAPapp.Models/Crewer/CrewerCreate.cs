@@ -26,7 +26,7 @@ namespace BAPapp.Models
         [ForeignKey(nameof(Venue))]
         [Display(Name = "Venue")]
         public string VenueId { get; set; }
-        public virtual Venue Venue { get; set; }
+        public virtual BAPapp.Data.Venue Venue { get; set; }
 
 
         [ForeignKey(nameof(Event))]

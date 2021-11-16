@@ -1,16 +1,16 @@
-﻿using BAPapp.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BAPapp.Models
+namespace BAPapp.Models.Venue
 {
-    public class VenueCreate
+    public class VenueEdit
     {
+        public Guid OwnerId { get; set; }
+
         [Key]
         [Required]
         public string VenueId { get; set; }
@@ -19,14 +19,10 @@ namespace BAPapp.Models
         [Display(Name = "Venue")]
         public string VenueName { get; set; }
 
+
         [Required]
         [Display(Name = "Address")]
         public string VenueLocation { get; set; }
-
-
-        
-        public string CrewerId { get; set; }
-        public virtual BAPapp.Data.Crewer Crewer { get; set; }
 
         [Display(Name = "Point of Contact")]
         public string PointOfContact { get; set; }
