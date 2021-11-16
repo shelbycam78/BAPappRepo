@@ -10,6 +10,8 @@ namespace BAPapp.Data
 {
     public class Venue
     {
+        public Guid OwnerId { get; set; }
+
         [Key]
         [Required]
         public string VenueId { get; set; }

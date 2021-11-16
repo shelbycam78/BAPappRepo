@@ -89,13 +89,13 @@ namespace BAPapp.WebMVC.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(string eventId, EventEdit model)
+        public ActionResult Edit(DateTime eventDate, EventEdit model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.EventId != eventId)
+            if (model.EventDate != eventDate)
             {
-                ModelState.AddModelError("", "EventId mismatch.");
+                ModelState.AddModelError("", "EVentDate mismatch.");
                 return View(model);
             }
 
