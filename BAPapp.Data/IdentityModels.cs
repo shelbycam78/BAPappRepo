@@ -35,6 +35,7 @@ namespace BAPapp.Data
         public DbSet<Event> Events { get; set; }
         public DbSet<Venue> Venues { get; set; }
         public DbSet<Crewer> Crewers { get; set; }
+        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

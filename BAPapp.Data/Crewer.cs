@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BAPapp.Data
 {
-    public class Crewer
+    public partial class Crewer
     {
         public Guid OwnerId { get; set; }
 
@@ -25,8 +25,16 @@ namespace BAPapp.Data
 
 
         public virtual ICollection<Venue> Venues { get; set; }
-
         public virtual ICollection<Event> Events { get; set; }
+
+        public Crewer()
+        {
+            Venues = new HashSet<Venue>();
+            Events = new HashSet<Event>();
+        }
+    
+
+        
 
 
 

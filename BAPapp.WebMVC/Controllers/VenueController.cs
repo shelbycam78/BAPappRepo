@@ -131,5 +131,16 @@ namespace BAPapp.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        public void AddCrewerToVenue(string crewerId, string venueId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var foundCrewer = ctx.Crewers.Single(c => c.CrewerId == crewerId);
+                var foundVenue = ctx.Venues.Single(v => v.VenueId == venueId);
+                foundVenue.Crewers.Add(foundCrewer);
+                var testing = ctx.SaveChanges();
+
+            }
+        }
     }
 }

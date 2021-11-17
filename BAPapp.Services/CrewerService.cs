@@ -1,6 +1,7 @@
 ﻿using BAPapp.Data;
 using BAPapp.Models;
 using BAPapp.Models.Crewer;
+using BAPapp.Models.Venue;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -106,12 +107,37 @@ namespace BAPapp.Services
                             .Single(c => c.Name == name);
                 ctx.Crewers.Remove(entity);
 
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() == 1;;
 
             }
 
         }
+        
 
+        //public IEnumerable<VenueListItem> GetVenuesByCrewer(string crewerID)
+       // {
+         //   using (var ctx = new ApplicationDbContext())
+           // {
+           //     var venueCrewer = ctx.VenueCrewers
+             //       .Where(vc => vc.CrewerId == crewerID);
+
+               // List<VenueListItem> results = new List<VenueListItem>();
+               // Venue venueToAdd = new Venue();
+               // foreach (var VenueCrewer in venueCrewer)
+               // {
+                //    venueToAdd = VenueCrewer.Venue;
+                 //   results.Add(new VenueListItem
+                 //   {
+                 //       VenueId = venueToAdd.VenueId,
+                 //       VenueName = venueToAdd.VenueName,
+                 //       VenueLocation = venueToAdd.VenueLocation,
+                 //       PointOfContact = venueToAdd.PointOfContact,
+                 //   });
+              //  }
+              //  return results;
+           // }
+        
+      // }
 
     }
 }
