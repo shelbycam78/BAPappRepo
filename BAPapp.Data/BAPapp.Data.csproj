@@ -57,57 +57,12 @@
     <Compile Include="Crewer.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202111170106538_joiningtablefixedhopefully.cs" />
-    <Compile Include="Migrations\202111170106538_joiningtablefixedhopefully.Designer.cs">
-      <DependentUpon>202111170106538_joiningtablefixedhopefully.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111030027148_InitialMigration.cs" />
-    <Compile Include="Migrations\202111030027148_InitialMigration.Designer.cs">
-      <DependentUpon>202111030027148_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111061736473_EventClassUpdated.cs" />
-    <Compile Include="Migrations\202111061736473_EventClassUpdated.Designer.cs">
-      <DependentUpon>202111061736473_EventClassUpdated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111120033337_ForeignKeysFixedThanksCasey.cs" />
-    <Compile Include="Migrations\202111120033337_ForeignKeysFixedThanksCasey.Designer.cs">
-      <DependentUpon>202111120033337_ForeignKeysFixedThanksCasey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111131927592_morehelp.cs" />
-    <Compile Include="Migrations\202111131927592_morehelp.Designer.cs">
-      <DependentUpon>202111131927592_morehelp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111132026228_eventEverythingStartedOver.cs" />
-    <Compile Include="Migrations\202111132026228_eventEverythingStartedOver.Designer.cs">
-      <DependentUpon>202111132026228_eventEverythingStartedOver.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Venue.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111030027148_InitialMigration.resx">
-      <DependentUpon>202111030027148_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111061736473_EventClassUpdated.resx">
-      <DependentUpon>202111061736473_EventClassUpdated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111120033337_ForeignKeysFixedThanksCasey.resx">
-      <DependentUpon>202111120033337_ForeignKeysFixedThanksCasey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111131927592_morehelp.resx">
-      <DependentUpon>202111131927592_morehelp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111132026228_eventEverythingStartedOver.resx">
-      <DependentUpon>202111132026228_eventEverythingStartedOver.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111170106538_joiningtablefixedhopefully.resx">
-      <DependentUpon>202111170106538_joiningtablefixedhopefully.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

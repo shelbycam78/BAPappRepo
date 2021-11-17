@@ -33,6 +33,7 @@ namespace BAPapp.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(EventCreate model)
         {
+
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateEventService();
@@ -49,6 +50,7 @@ namespace BAPapp.WebMVC.Controllers
             ModelState.AddModelError("", "Event could not be created");
             return View(model);
 
+            
         }
         public ActionResult Details(DateTime eventDate)
         {
