@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BAPapp.Models
+namespace BAPapp.Models.Crewer
 {
     public class CrewerDetail
     {
@@ -17,10 +17,10 @@ namespace BAPapp.Models
 
         public string Phone { get; set; }
 
-        [Display(Name = "Venue")]
+
         public string VenueId { get; set; }
   
-        [Display(Name = "Event")]
+     
         public string EventId { get; set; }
       
 

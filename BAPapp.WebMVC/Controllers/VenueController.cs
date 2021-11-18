@@ -1,6 +1,4 @@
-﻿using BAPapp.Data;
-using BAPapp.Models;
-using BAPapp.Models.Venue;
+﻿using BAPapp.Models.Venue;
 using BAPapp.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -13,6 +11,7 @@ using System.Web.Mvc;
 
 namespace BAPapp.WebMVC.Controllers
 {
+    [Authorize]
     public class VenueController : Controller
     {
         public ActionResult Index()
@@ -131,16 +130,6 @@ namespace BAPapp.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        public void AddCrewerToVenue(string crewerId, string venueId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var foundCrewer = ctx.Crewers.Single(c => c.CrewerId == crewerId);
-                var foundVenue = ctx.Venues.Single(v => v.VenueId == venueId);
-                foundVenue.Crewers.Add(foundCrewer);
-                var testing = ctx.SaveChanges();
-
-            }
-        }
+        
     }
 }

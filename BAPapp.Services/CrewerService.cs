@@ -1,7 +1,5 @@
 ﻿using BAPapp.Data;
-using BAPapp.Models;
 using BAPapp.Models.Crewer;
-using BAPapp.Models.Venue;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +20,7 @@ namespace BAPapp.Services
         {
             Crewer entity = new Crewer
             {
-                CrewerId = model.CrewerId,
+           
                 Name = model.Name,
                 Email = model.Email,
                 Phone = model.Phone,

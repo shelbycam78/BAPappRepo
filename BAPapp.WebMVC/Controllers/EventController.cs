@@ -1,5 +1,4 @@
-﻿using BAPapp.Data;
-using BAPapp.Models;
+﻿using BAPapp.Models.Event;
 using BAPapp.Services;
 using Microsoft.AspNet.Identity;
 using System;

@@ -1,5 +1,4 @@
 ﻿using BAPapp.Data;
-using BAPapp.Models;
 using BAPapp.Models.Venue;
 using System;
 using System.Collections.Generic;
@@ -23,7 +22,7 @@ namespace BAPapp.Services
         {
             Venue entity = new Venue
             {
-                VenueId = model.VenueId,
+             
                 VenueName = model.VenueName,
                 VenueLocation = model.VenueLocation,
                 PointOfContact = model.PointOfContact
@@ -109,6 +108,19 @@ namespace BAPapp.Services
 
             }
 
+        }
+
+        //will implement later
+        public void AddCrewerToVenue(string crewerId, string venueId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var foundCrewer = ctx.Crewers.Single(c => c.CrewerId == crewerId);
+                var foundVenue = ctx.Venues.Single(v => v.VenueId == venueId);
+                foundVenue.Crewers.Add(foundCrewer);
+                var testing = ctx.SaveChanges();
+
+            }
         }
 
     }

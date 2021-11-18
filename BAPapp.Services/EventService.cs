@@ -1,5 +1,5 @@
 ﻿using BAPapp.Data;
-using BAPapp.Models;
+using BAPapp.Models.Event;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +24,7 @@ namespace BAPapp.Services
                 new Event()
                 {
                     OwnerId = _userId,
-                    EventId = model.EventId,
+                  
                     EventDate = model.EventDate,
                     EventTitle = model.EventTitle,
                     VenueId = model.VenueId,

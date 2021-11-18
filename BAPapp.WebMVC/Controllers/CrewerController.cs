@@ -1,5 +1,4 @@
-﻿using BAPapp.Data;
-using BAPapp.Models;
+﻿using BAPapp.Models.Crewer;
 using BAPapp.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -12,6 +11,7 @@ using System.Web.Mvc;
 
 namespace BAPapp.WebMVC.Controllers
 {
+    [Authorize]
     public class CrewerController : Controller
     {
         // GET: Crewer
