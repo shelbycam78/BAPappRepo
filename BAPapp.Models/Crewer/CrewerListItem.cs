@@ -8,8 +8,7 @@ namespace BAPapp.Models.Crewer
 {
     public class CrewerListItem
     {
-        public string CrewerId { get; set; }
-
+       
         public string Name { get; set; }
   
         public string Email { get; set; }

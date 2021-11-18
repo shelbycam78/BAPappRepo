@@ -8,16 +8,14 @@ namespace BAPapp.Models.Event
 {
     public class EventDetail
     {
-        public string EventId { get; set; }
-
-
+       
         public DateTime EventDate { get; set; }
 
         public string EventTitle { get; set; }
 
-        public string VenueId { get; set; }
+        public int VenueId { get; set; }
 
-        public string CrewerId { get; set; }
+        public virtual Data.Crewer Crewer { get; set; }
 
         public string Position { get; set; }
         public string Director { get; set; }

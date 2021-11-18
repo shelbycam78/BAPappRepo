@@ -8,13 +8,12 @@ using System.Threading.Tasks;
 
 namespace BAPapp.Data
 {
-    public partial class Venue
+    public class Venue
     {
         public Guid OwnerId { get; set; }
 
         [Key]
-     
-        public string VenueId { get; set; }
+        public int VenueId { get; set; }
 
         [Required]
         [Display(Name = "Venue")]
@@ -29,14 +28,8 @@ namespace BAPapp.Data
         public string PointOfContact { get; set; }
 
 
-        public ICollection<Crewer> Crewers { get; set; }
+        public List<Crewer> Crewers { get; set; }
 
-        public ICollection<Event> Events { get; set; }
-
-        public Venue()
-        {
-            Crewers = new HashSet<Crewer>();
-            Events = new HashSet<Event>();
-        }
+        public List<Event> Events { get; set; }
     }
 }

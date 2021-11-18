@@ -9,18 +9,13 @@ namespace BAPapp.Models.Crewer
 {
     public class CrewerEdit
     {
-        public string CrewerId { get; set; }
-
+  
         public string Name { get; set; }
 
         public string Email { get; set; }
 
         public string Phone { get; set; }
 
-
-        public string VenueId { get; set; }
-
-
-        public string EventId { get; set; }
+        public int EventId { get; set; }
     }
 }

@@ -9,13 +9,8 @@ namespace BAPapp.Models.Venue
 {
     public class VenueEdit
     {
-        public Guid OwnerId { get; set; }
-
-  
-        public string VenueId { get; set; }
-
+       
         public string VenueName { get; set; }
-
 
         public string VenueLocation { get; set; }
 

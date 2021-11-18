@@ -10,30 +10,7 @@
 </head>
 <body>
 
-    
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            
-           
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Event", "Index", "Event")</li>
-                        <li>@Html.ActionLink("Venue", "Index", "Venue")</li>
-                        <li>@Html.ActionLink("Crewer", "Index", "Crewer")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-
-
-
-
-
+     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,17 +22,17 @@
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="@Url.Action("Index", "Event")>
+                    <a class="nav-link active" href="@Url.Action("Index", "Event")">
                         Event
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="@Url.Action("Index", "Venue")>
+                    <a class="nav-link active" href="@Url.Action("Index", "Venue")">
                         Venue
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="@Url.Action("Index", "Crewer")>
+                    <a class="nav-link active" href="@Url.Action("Index", "Crewer")">
                         Crewer
                     </a>
                 </li>
@@ -64,35 +41,10 @@
         </div>
     </nav>
 
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("BAPapp", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Event", "Index", "Event")</li>
-                        <li>@Html.ActionLink("Venue", "Index", "Venue")</li>
-                        <li>@Html.ActionLink("Crewer", "Index", "Crewer")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
-                    @Html.Partial("_LoginPartial")
-                </div>
-            </div>
-        </div>@*
-                                                 
-                                                 
-                                                 
+              
 
     <div class="container body-content">
-        @RenderBody()
+        @(RenderBody())
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - BAPapp</p>

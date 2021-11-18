@@ -47,7 +47,7 @@ namespace BAPapp.Services
                           v =>
                               new VenueListItem
                               {
-                                  VenueId = v.VenueId,
+                                  
                                   VenueName = v.VenueName,
                                   VenueLocation = v.VenueLocation,
                                   PointOfContact = v.PointOfContact
@@ -67,7 +67,7 @@ namespace BAPapp.Services
                 return
                        new VenueDetail
                        {
-                           VenueId = entity.VenueId,
+                           
                            VenueName = entity.VenueName,
                            VenueLocation = entity.VenueLocation,
                            PointOfContact = entity.PointOfContact,
@@ -85,7 +85,7 @@ namespace BAPapp.Services
                             .Venues
                             .Single(v => v.VenueName == model.VenueName && v.OwnerId == _userId);
 
-                entity.VenueId = model.VenueId;
+                
                 entity.VenueName = model.VenueName;
                 entity.VenueLocation = model.VenueLocation;
                 entity.PointOfContact = model.PointOfContact;
@@ -111,7 +111,7 @@ namespace BAPapp.Services
         }
 
         //will implement later
-        public void AddCrewerToVenue(string crewerId, string venueId)
+        public void AddCrewerToVenue(int crewerId, int venueId)
         {
             using (var ctx = new ApplicationDbContext())
             {

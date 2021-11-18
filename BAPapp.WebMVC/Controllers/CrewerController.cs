@@ -74,7 +74,7 @@ namespace BAPapp.WebMVC.Controllers
             var model =
                 new CrewerEdit
                 {
-                    CrewerId = detail.CrewerId,
+                    
                     Name = detail.Name,
                     Email = detail.Email,
                     Phone = detail.Phone,

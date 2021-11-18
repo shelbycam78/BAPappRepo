@@ -74,11 +74,10 @@ namespace BAPapp.WebMVC.Controllers
             var model =
                 new EventEdit
                 {
-                    EventId = detail.EventId,
+                    
                     EventDate = detail.EventDate,
                     EventTitle = detail.EventTitle,
-                    VenueId = detail.VenueId,
-                    CrewerId = detail.CrewerId,
+                    
                     Position = detail.Position,
                     Director = detail.Director,
                     Producer = detail.Producer,
@@ -122,7 +121,7 @@ namespace BAPapp.WebMVC.Controllers
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteEvent(string eventId)
+        public ActionResult DeleteEvent(int eventId)
         {
             var service = CreateEventService();
 

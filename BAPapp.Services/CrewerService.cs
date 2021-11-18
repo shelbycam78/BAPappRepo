@@ -47,7 +47,6 @@ namespace BAPapp.Services
                                 new CrewerListItem
                                 {
 
-                                    CrewerId = c.CrewerId,
                                     Name = c.Name,
                                     Email = c.Email,
                                     Phone = c.Phone,
@@ -69,7 +68,7 @@ namespace BAPapp.Services
                 return
                        new CrewerDetail
                          {
-                             CrewerId = entity.CrewerId,
+                             
                              Name = entity.Name,
                              Email = entity.Email,
                              Phone = entity.Phone,
@@ -86,10 +85,11 @@ namespace BAPapp.Services
                             .Crewers
                             .Single(c => c.Name == model.Name && c.OwnerId == _userId);
 
-                entity.CrewerId = model.CrewerId;
+                
                 entity.Name = model.Name;
                 entity.Email = model.Email;
                 entity.Phone = model.Phone;
+                
 
                 return ctx.SaveChanges() == 1;
             }
@@ -110,32 +110,6 @@ namespace BAPapp.Services
             }
 
         }
-        
-
-        //public IEnumerable<VenueListItem> GetVenuesByCrewer(string crewerID)
-       // {
-         //   using (var ctx = new ApplicationDbContext())
-           // {
-           //     var venueCrewer = ctx.VenueCrewers
-             //       .Where(vc => vc.CrewerId == crewerID);
-
-               // List<VenueListItem> results = new List<VenueListItem>();
-               // Venue venueToAdd = new Venue();
-               // foreach (var VenueCrewer in venueCrewer)
-               // {
-                //    venueToAdd = VenueCrewer.Venue;
-                 //   results.Add(new VenueListItem
-                 //   {
-                 //       VenueId = venueToAdd.VenueId,
-                 //       VenueName = venueToAdd.VenueName,
-                 //       VenueLocation = venueToAdd.VenueLocation,
-                 //       PointOfContact = venueToAdd.PointOfContact,
-                 //   });
-              //  }
-              //  return results;
-           // }
-        
-      // }
-
+      
     }
 }

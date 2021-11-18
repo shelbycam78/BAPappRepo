@@ -14,7 +14,6 @@ namespace BAPapp.Models.Venue
         public string VenueName { get; set; }
 
         public string VenueLocation { get; set; }
-
  
         public string PointOfContact { get; set; }
     }

@@ -28,7 +28,6 @@ namespace BAPapp.Services
                     EventDate = model.EventDate,
                     EventTitle = model.EventTitle,
                     VenueId = model.VenueId,
-                    CrewerId = model.CrewerId,
                     Position = model.Position,
                     Director = model.Director,
                     Producer = model.Producer,
@@ -54,9 +53,11 @@ namespace BAPapp.Services
                                 e =>
                                     new EventListItem
                                     {
-                                        EventId = e.EventId,
+                                        
                                         EventDate = e.EventDate,
                                         EventTitle = e.EventTitle,
+                                        VenueId = e.VenueId,
+
                                     });
                 return query.ToArray();
             }
@@ -72,11 +73,9 @@ namespace BAPapp.Services
                 return
                     new EventDetail
                     {
-                        EventId = entity.EventId,
+                        
                         EventDate = entity.EventDate,
                         EventTitle = entity.EventTitle,
-                        VenueId = entity.VenueId,
-                        CrewerId = entity.CrewerId,
                         Position = entity.Position,
                         Director = entity.Director,
                         Producer = entity.Producer,
@@ -96,11 +95,11 @@ namespace BAPapp.Services
                             .Events
                             .Single(e => e.EventDate == model.EventDate && e.OwnerId==_userId);
 
-                entity.EventId = model.EventId;
+                
                 entity.EventDate = model.EventDate;
                 entity.EventTitle = model.EventTitle;
                 entity.VenueId = model.VenueId;
-                entity.CrewerId = model.CrewerId;
+                
                 entity.Position = model.Position;
                 entity.Director = model.Director;
                 entity.Producer = model.Producer;
@@ -112,7 +111,7 @@ namespace BAPapp.Services
             }
 
         }
-        public bool DeleteEvent(string eventId)
+        public bool DeleteEvent(int eventId)
         {
             using (var ctx = new ApplicationDbContext())
             {

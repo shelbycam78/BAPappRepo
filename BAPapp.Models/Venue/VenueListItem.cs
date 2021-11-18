@@ -9,9 +9,7 @@ namespace BAPapp.Models.Venue
 {
     public class VenueListItem
     {
-        public string VenueId { get; set; }
-
-
+       
         public string VenueName { get; set; }
 
 

@@ -11,17 +11,13 @@ namespace BAPapp.Models.Event
     { 
 
 
-
-
         public DateTime EventDate { get; set; }
 
         public string EventTitle { get; set; }
 
-   
-        public string VenueId { get; set; }
+        public int VenueId { get; set; }
 
-        public string CrewerId { get; set; }
-
+        
         public string Position { get; set; }
         public string Director { get; set; }
         public string Producer { get; set; }
@@ -29,7 +25,6 @@ namespace BAPapp.Models.Event
       
         public bool IsPaid { get; set; }
 
-     
         public bool IsTaxed { get; set; }
 
         public bool IsDirectDeposit { get; set; }
