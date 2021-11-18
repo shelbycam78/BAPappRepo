@@ -285,11 +285,11 @@
     <Content Include="Views\Venue\Edit.cshtml" />
     <Content Include="Views\Venue\Details.cshtml" />
     <Content Include="Views\Event\Index.cshtml" />
-    <Content Include="Views\Event\Create.cshtml" />
     <Content Include="Views\Event\Details.cshtml" />
     <Content Include="Views\Event\Edit.cshtml" />
     <Content Include="Views\Event\Delete.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
+    <Content Include="Views\Event\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -302,16 +302,12 @@
       <Project>{cce8e48f-32dd-416e-add6-6fbe3b22af96}</Project>
       <Name>BAPapp.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BAPapp.Interfaces\BAPapp.Interfaces.csproj">
-      <Project>{1d3ef943-14da-4278-ab20-2d7fa2d5cc8f}</Project>
-      <Name>BAPapp.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BAPapp.Models\BAPapp.Models.csproj">
       <Project>{400cb1b1-dbd6-429b-b509-b6b5822808a3}</Project>
       <Name>BAPapp.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\BAPapp.Services\BAPapp.Services.csproj">
-      <Project>{ABAC447F-F2FF-45FE-AC8F-3459B058D3EC}</Project>
+      <Project>{abac447f-f2ff-45fe-ac8f-3459b058d3ec}</Project>
       <Name>BAPapp.Services</Name>
     </ProjectReference>
   </ItemGroup>

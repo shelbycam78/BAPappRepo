@@ -13,7 +13,7 @@ namespace BAPapp.Data
         public Guid OwnerId { get; set; }
 
         [Key]
-        [Required]
+   
         [Display(Name = "Invoice Number")]
         public string EventId { get; set; }
         

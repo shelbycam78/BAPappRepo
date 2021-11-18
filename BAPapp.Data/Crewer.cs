@@ -13,7 +13,6 @@ namespace BAPapp.Data
         public Guid OwnerId { get; set; }
 
         [Key]
-        [Required]
         public string CrewerId { get; set; }
 
         [Required]
