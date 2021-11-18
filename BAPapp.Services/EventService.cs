@@ -12,6 +12,7 @@ namespace BAPapp.Services
     public class EventService
     {
         private readonly Guid _userId;
+
         public EventService(Guid userId)
         { 
                _userId = userId;

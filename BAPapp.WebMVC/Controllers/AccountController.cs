@@ -13,7 +13,8 @@ using BAPapp.Data;
 
 namespace BAPapp.WebMVC.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
+    //[Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
