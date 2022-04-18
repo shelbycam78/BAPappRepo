@@ -1,12 +1,14 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
-    @*<a class="navbar-brand" href="#">Navbar</a>
+<div/>
+    @*<nav/> class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-    </button>*@
-    <!--<div class="collapse navbar-collapse" id="navbarNav">
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -22,12 +24,34 @@
             </li>
         </ul>
     </div>
-</nav>-->
-<div class="jumbotron">
-    <h1>BAPapp</h1>
-    <p class="lead">BAPapp, also known as the Broadcast and Production app, is a way to track and archive booked gigs.  You can add various Events, Venues, and Crewers.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+</nav>*@
+    
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="..." class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 
 <div class="row">
     <div class="col-md-4">
@@ -47,4 +71,4 @@
         <p>Have you been all over the country to the biggest and smallest venues?  Log the details so you can track mileage</p>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
-</div>
+</div> 

@@ -7,13 +7,13 @@ namespace BAPapp.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class AllFKReferencesCommentOut : IMigrationMetadata
+    public sealed partial class DatabaseAndMigrationsReset : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AllFKReferencesCommentOut));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(DatabaseAndMigrationsReset));
         
         string IMigrationMetadata.Id
         {
-            get { return "202204181551196_AllFKReferencesCommentOut"; }
+            get { return "202204181842245_DatabaseAndMigrationsReset"; }
         }
         
         string IMigrationMetadata.Source
