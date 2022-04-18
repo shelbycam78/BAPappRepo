@@ -77,10 +77,9 @@ namespace BAPapp.WebMVC.Controllers
                     
                     EventDate = detail.EventDate,
                     EventTitle = detail.EventTitle,
-                    
-                    
                     IsPaid = detail.IsPaid,
-                    
+                    //VenueId = detail.VenueId,
+                    //ClientId = detail.ClientId,
                 };
             return View(model);
         }

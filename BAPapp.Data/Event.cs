@@ -28,13 +28,13 @@ namespace BAPapp.Data
         public bool IsPaid { get; set; }
 
 
-        [ForeignKey(nameof(Venue))]
-        public int VenueId { get; set; }
-        public virtual List<Venue> Venues { get; set; }
+        //[ForeignKey(nameof(VenueId))]
+        //public int VenueId { get; set; }
+        //public virtual List<Venue> Venues { get; set; }
 
-        [ForeignKey(nameof(Client))]
-        public int ClientId { get; set; }
-        public virtual List<Client> Clients { get; set; }
+        //[ForeignKey(nameof(ClientId))]
+        //public int ClientId { get; set; }
+        //public virtual List<Client> Clients { get; set; }
 
         //public Category EventType { get; set; }
 

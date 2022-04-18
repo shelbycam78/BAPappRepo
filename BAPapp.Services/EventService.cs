@@ -27,7 +27,8 @@ namespace BAPapp.Services
                   
                     EventDate = model.EventDate,
                     EventTitle = model.EventTitle,
-                    VenueId = model.VenueId,
+                    //VenueId = model.VenueId,
+                    //ClientId = model.ClientId,
                     IsPaid = model.IsPaid,
                    
                 };
@@ -52,10 +53,9 @@ namespace BAPapp.Services
                                         
                                         EventDate = e.EventDate,
                                         EventTitle = e.EventTitle,
-                                        VenueId = e.VenueId,
-
                                         IsPaid = e.IsPaid,
-
+                                        //VenueId = e.VenueId,
+                                        //ClientId = e.ClientId,
                                     });
                 return query.ToArray();
             }
@@ -74,8 +74,9 @@ namespace BAPapp.Services
                         
                         EventDate = entity.EventDate,
                         EventTitle = entity.EventTitle,
-                        
                         IsPaid = entity.IsPaid,
+                        //VenueId = entity.VenueId,
+                        //ClientId = entity.ClientId,
                        
                     };        
             }
@@ -93,11 +94,9 @@ namespace BAPapp.Services
                 
                 entity.EventDate = model.EventDate;
                 entity.EventTitle = model.EventTitle;
-                entity.VenueId = model.VenueId;
-                
-                
                 entity.IsPaid = model.IsPaid;
-                
+                //entity.VenueId = model.VenueId;
+                //entity.ClientId = model.ClientId;
 
                 return ctx.SaveChanges() == 1;
             }

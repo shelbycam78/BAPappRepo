@@ -15,9 +15,9 @@ namespace BAPapp.Models.Event
 
         public bool IsPaid { get; set; }
 
-        public int VenueId { get; set; }
+        //public int VenueId { get; set; }
 
-        public int ClientId { get; set; }
+        //public int ClientId { get; set; }
 
 
         

@@ -25,7 +25,7 @@ namespace BAPapp.Data
         public string VenueLocation { get; set; }
 
         
-        //public List<Crewer> Crewers { get; set; }
+        //public List<Client> Clients { get; set; }
 
         //public List<Event> Events { get; set; }
     }

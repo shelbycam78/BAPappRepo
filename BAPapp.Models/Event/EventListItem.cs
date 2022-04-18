@@ -27,12 +27,12 @@ namespace BAPapp.Models.Event
         public bool IsPaid { get; set; }
 
 
-        [Display(Name = "Venue")]
-        public int VenueId { get; set; }
+        //[Display(Name = "Venue")]
+        //public int VenueId { get; set; }
 
 
-        [Display(Name = "Company")]
-        public int ClientId { get; set; }
+        //[Display(Name = "Company")]
+        //public int ClientId { get; set; }
 
 
         

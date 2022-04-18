@@ -165,7 +165,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
-    <Compile Include="Controllers\CrewerController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -259,11 +258,6 @@
     <Content Include="Views\Event\Create.cshtml" />
     <Content Include="Views\Event\Details.cshtml" />
     <Content Include="Views\Event\Edit.cshtml" />
-    <Content Include="Views\Crewer\Index.cshtml" />
-    <Content Include="Views\Crewer\Create.cshtml" />
-    <Content Include="Views\Crewer\Details.cshtml" />
-    <Content Include="Views\Crewer\Edit.cshtml" />
-    <Content Include="Views\Crewer\Delete.cshtml" />
     <Content Include="Views\Event\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
