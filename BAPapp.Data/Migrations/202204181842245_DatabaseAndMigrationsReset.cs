@@ -3,7 +3,7 @@ namespace BAPapp.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AllFKReferencesCommentOut : DbMigration
+    public partial class DatabaseAndMigrationsReset : DbMigration
     {
         public override void Up()
         {
@@ -27,8 +27,22 @@ namespace BAPapp.Data.Migrations
                         EventDate = c.DateTime(nullable: false),
                         EventTitle = c.String(),
                         IsPaid = c.Boolean(nullable: false),
+                        VenueId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.EventId);
+                .PrimaryKey(t => t.EventId)
+                .ForeignKey("dbo.Venue", t => t.VenueId, cascadeDelete: true)
+                .Index(t => t.VenueId);
+            
+            CreateTable(
+                "dbo.Venue",
+                c => new
+                    {
+                        VenueId = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Guid(nullable: false),
+                        VenueName = c.String(nullable: false),
+                        VenueLocation = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.VenueId);
             
             CreateTable(
                 "dbo.IdentityRole",
@@ -100,17 +114,6 @@ namespace BAPapp.Data.Migrations
                 .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUser_Id)
                 .Index(t => t.ApplicationUser_Id);
             
-            CreateTable(
-                "dbo.Venue",
-                c => new
-                    {
-                        VenueId = c.Int(nullable: false, identity: true),
-                        OwnerId = c.Guid(nullable: false),
-                        VenueName = c.String(nullable: false),
-                        VenueLocation = c.String(nullable: false),
-                    })
-                .PrimaryKey(t => t.VenueId);
-            
         }
         
         public override void Down()
@@ -119,16 +122,18 @@ namespace BAPapp.Data.Migrations
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
+            DropForeignKey("dbo.Event", "VenueId", "dbo.Venue");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
-            DropTable("dbo.Venue");
+            DropIndex("dbo.Event", new[] { "VenueId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
+            DropTable("dbo.Venue");
             DropTable("dbo.Event");
             DropTable("dbo.Client");
         }
