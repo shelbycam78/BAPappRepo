@@ -78,12 +78,9 @@ namespace BAPapp.WebMVC.Controllers
                     EventDate = detail.EventDate,
                     EventTitle = detail.EventTitle,
                     
-                    Position = detail.Position,
-                    Director = detail.Director,
-                    Producer = detail.Producer,
+                    
                     IsPaid = detail.IsPaid,
-                    IsTaxed = detail.IsTaxed,
-                    IsDirectDeposit = detail.IsDirectDeposit
+                    
                 };
             return View(model);
         }

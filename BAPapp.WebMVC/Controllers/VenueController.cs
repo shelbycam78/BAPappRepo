@@ -74,10 +74,10 @@ namespace BAPapp.WebMVC.Controllers
             var model =
                 new VenueEdit
                 {
-                    
+                    VenueId = detail.VenueId,
                     VenueName = detail.VenueName,
                     VenueLocation = detail.VenueLocation,
-                    PointOfContact = detail.PointOfContact,
+                    
                 };
             return View(model);
         }

@@ -21,15 +21,12 @@ namespace BAPapp.Data
 
 
         [Required]
-        [Display(Name = "Address")]
+        [Display(Name = "Location")]
         public string VenueLocation { get; set; }
 
-        [Display(Name = "Point of Contact")]
-        public string PointOfContact { get; set; }
+        
+        //public List<Crewer> Crewers { get; set; }
 
-
-        public List<Crewer> Crewers { get; set; }
-
-        public List<Event> Events { get; set; }
+        //public List<Event> Events { get; set; }
     }
 }

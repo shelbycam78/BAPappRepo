@@ -9,13 +9,12 @@ namespace BAPapp.Models.Venue
 {
     public class VenueDetail
     {
- 
+
+        public int VenueId { get; set; }
         public string VenueName { get; set; }
 
         public string VenueLocation { get; set; }
-                
-        public string PointOfContact { get; set; }
 
-        public virtual List<Data.Event> Events { get; set; }
+        //public virtual List<Data.Event> Events { get; set; }
     }
 }

@@ -36,7 +36,6 @@ namespace BAPapp.Data
         public DbSet<Venue> Venues { get; set; }
         public DbSet<Client> Clients { get; set; }
 
-        //public DbSet<Crewer> Crewers { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
