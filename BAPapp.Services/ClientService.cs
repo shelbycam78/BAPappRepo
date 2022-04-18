@@ -24,7 +24,6 @@ namespace BAPapp.Services
                 Company = model.Company,
                 Contact = model.Contact,
 
-
             };
             using (var ctx = new ApplicationDbContext())
             {

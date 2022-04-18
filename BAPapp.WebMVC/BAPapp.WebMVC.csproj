@@ -254,15 +254,17 @@
     <Content Include="Views\Venue\Details.cshtml" />
     <Content Include="Views\Venue\Edit.cshtml" />
     <Content Include="Views\Venue\Delete.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
+    <Content Include="Views\Client\Create.cshtml" />
+    <Content Include="Views\Client\Details.cshtml" />
+    <Content Include="Views\Client\Edit.cshtml" />
     <Content Include="Views\Event\Index.cshtml" />
     <Content Include="Views\Event\Create.cshtml" />
     <Content Include="Views\Event\Details.cshtml" />
     <Content Include="Views\Event\Edit.cshtml" />
-    <Content Include="Views\Event\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Client\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BAPapp.Data\BAPapp.Data.csproj">
