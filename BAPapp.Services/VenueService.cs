@@ -17,7 +17,8 @@ namespace BAPapp.Services
         {
             _userId = userId;
         }
-                //create
+        
+        //create
         public bool CreateVenue(VenueCreate model)
         {
             Venue entity = new Venue
@@ -35,7 +36,7 @@ namespace BAPapp.Services
         }
 
         //get all
-        public IEnumerable<VenueListItem> GetVenues()
+        public IEnumerable<VenueListItem> GetVenueList()
         {
             using (var ctx = new ApplicationDbContext())
             {

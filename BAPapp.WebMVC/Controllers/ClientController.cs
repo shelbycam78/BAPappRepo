@@ -27,6 +27,7 @@ namespace BAPapp.WebMVC.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.Title = "New Client";
             return View();
         }
 
@@ -75,6 +76,7 @@ namespace BAPapp.WebMVC.Controllers
             var model =
                 new ClientEdit
                 {
+                    ClientId = detail.ClientId,
                     Company = detail.Company,
                     Contact = detail.Contact,
               
@@ -106,7 +108,7 @@ namespace BAPapp.WebMVC.Controllers
 
         }
         //GET:  Delete
-        //Crewer/Delete/CrewerId
+        //Client/Delete/ClientId
         public ActionResult Delete(int clientId)
         {
             var svc = CreateClientService();

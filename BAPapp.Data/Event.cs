@@ -27,10 +27,9 @@ namespace BAPapp.Data
         [Display(Name = "Have you been paid?")]
         public bool IsPaid { get; set; }
 
-
-        //[ForeignKey(nameof(VenueId))]
-        //public int VenueId { get; set; }
-        //public virtual List<Venue> Venues { get; set; }
+        public int VenueId { get; set; }
+        [ForeignKey("VenueId")]
+        public virtual Venue Venue { get; set; }
 
         //[ForeignKey(nameof(ClientId))]
         //public int ClientId { get; set; }
