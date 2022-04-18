@@ -54,9 +54,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client.cs" />
     <Compile Include="Crewer.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202204181551196_AllFKReferencesCommentOut.cs" />
+    <Compile Include="Migrations\202204181551196_AllFKReferencesCommentOut.Designer.cs">
+      <DependentUpon>202204181551196_AllFKReferencesCommentOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204181759400_ControllerChanges.cs" />
+    <Compile Include="Migrations\202204181759400_ControllerChanges.Designer.cs">
+      <DependentUpon>202204181759400_ControllerChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Venue.cs" />
@@ -64,6 +73,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202204181551196_AllFKReferencesCommentOut.resx">
+      <DependentUpon>202204181551196_AllFKReferencesCommentOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204181759400_ControllerChanges.resx">
+      <DependentUpon>202204181759400_ControllerChanges.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

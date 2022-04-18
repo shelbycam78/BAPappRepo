@@ -17,9 +17,7 @@
         <th>
             @Html.DisplayNameFor(model => model.VenueLocation)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PointOfContact)
-        </th>
+        
         <th></th>
     </tr>
 
@@ -31,13 +29,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.VenueLocation)
         </td>
+       
         <td>
-            @Html.DisplayFor(modelItem => item.PointOfContact)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new {VenueName = item.VenueName }) |
+            @Html.ActionLink("Details", "Details", new { VenueName = item.VenueName }) |
+            @Html.ActionLink("Delete", "Delete", new { VenueName = item.VenueName })
         </td>
     </tr>
 }

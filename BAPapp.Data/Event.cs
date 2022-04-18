@@ -13,7 +13,6 @@ namespace BAPapp.Data
         public Guid OwnerId { get; set; }
 
         [Key]
-   
         [Display(Name = "Invoice Number")]
         public int EventId { get; set; }
         
@@ -24,31 +23,28 @@ namespace BAPapp.Data
         [Display(Name = "Event Title")]
         public string EventTitle { get; set; }
 
-           
-        public string Position { get; set; }
-        public string Director { get; set; }
-        public string Producer { get; set; }
-
         [Required]
         [Display(Name = "Have you been paid?")]
         public bool IsPaid { get; set; }
 
-        [Display(Name = "Did they take out taxes?")]
-        public bool IsTaxed { get; set; }
-
-        [Display(Name = "Paid via direct deposit?")]
-        public bool IsDirectDeposit { get; set; }
-
-        [ForeignKey(nameof(VenueId))]
         public int VenueId { get; set; }
-        public virtual List<Venue> Venues { get; set; }
+        [ForeignKey("VenueId")]
+        public virtual Venue Venue { get; set; }
 
-        [ForeignKey(nameof(CrewerId))]
-        public int CrewerId { get; set; }
-        public virtual Crewer Crewer { get; set; }
+        //[ForeignKey(nameof(ClientId))]
+        //public int ClientId { get; set; }
+        //public virtual List<Client> Clients { get; set; }
 
         //public Category EventType { get; set; }
 
+        //public string Position { get; set; }
+        //public string Director { get; set; }
+        //public string Producer { get; set; }
 
+        //[Display(Name = "Did they take out taxes?")]
+        //public bool IsTaxed { get; set; }
+
+        //[Display(Name = "Paid via direct deposit?")]
+        //public bool IsDirectDeposit { get; set; }
     }
 }

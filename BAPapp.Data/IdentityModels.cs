@@ -5,7 +5,6 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using static BAPapp.Data.ApplicationDbContext;
 
 namespace BAPapp.Data
 {
@@ -34,8 +33,9 @@ namespace BAPapp.Data
 
         public DbSet<Event> Events { get; set; }
         public DbSet<Venue> Venues { get; set; }
-        public DbSet<Crewer> Crewers { get; set; }
-        
+        public DbSet<Client> Clients { get; set; }
+
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

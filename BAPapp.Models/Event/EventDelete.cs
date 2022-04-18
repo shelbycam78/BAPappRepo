@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace BAPapp.Models.Event
 {
-    public class EventDetail
+    public class EventDelete
     {
-       
         public DateTime EventDate { get; set; }
 
         public string EventTitle { get; set; }
@@ -18,9 +17,5 @@ namespace BAPapp.Models.Event
         public int VenueId { get; set; }
 
         //public int ClientId { get; set; }
-
-
-        
-
     }
 }

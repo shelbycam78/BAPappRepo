@@ -24,6 +24,7 @@ namespace BAPapp.WebMVC.Controllers
         }
         public ActionResult Create()
         {
+            ViewBag.Title = "New EVent";
             return View();
         }
 
@@ -66,7 +67,6 @@ namespace BAPapp.WebMVC.Controllers
         }
 
 
-
         public ActionResult Edit(DateTime eventDate)
         {
             var service = CreateEventService();
@@ -77,13 +77,9 @@ namespace BAPapp.WebMVC.Controllers
                     
                     EventDate = detail.EventDate,
                     EventTitle = detail.EventTitle,
-                    
-                    Position = detail.Position,
-                    Director = detail.Director,
-                    Producer = detail.Producer,
                     IsPaid = detail.IsPaid,
-                    IsTaxed = detail.IsTaxed,
-                    IsDirectDeposit = detail.IsDirectDeposit
+                    VenueId = detail.VenueId,
+                    //ClientId = detail.ClientId,
                 };
             return View(model);
         }
@@ -95,7 +91,7 @@ namespace BAPapp.WebMVC.Controllers
 
             if (model.EventDate != eventDate)
             {
-                ModelState.AddModelError("", "EVentDate mismatch.");
+                ModelState.AddModelError("", "EventDate mismatch.");
                 return View(model);
             }
 
@@ -110,6 +106,9 @@ namespace BAPapp.WebMVC.Controllers
             ModelState.AddModelError("", "Your event could not be updated.");
             return View(model);
         }
+        
+        //GET:  Delete
+        //Event/Delete/EventId
         public ActionResult Delete(DateTime eventDate)
         {
             var svc = CreateEventService();
@@ -118,6 +117,8 @@ namespace BAPapp.WebMVC.Controllers
             return View(model);
         }
 
+        //POST: Delete
+        //Crewer/Delete/CrewerId
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]

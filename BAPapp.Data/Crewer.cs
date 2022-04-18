@@ -8,22 +8,22 @@ using System.Threading.Tasks;
 
 namespace BAPapp.Data
 {
-    public class Crewer
-    {
-        public Guid OwnerId { get; set; }
+    //public class Crewer
+    //{
+    //    public Guid OwnerId { get; set; }
 
-        [Key]
-        public int CrewerId { get; set; }
+    //    [Key]
+    //    public int CrewerId { get; set; }
 
-        [Required]
-        public string Name { get; set; }
+    //    [Required]
+    //    public string Name { get; set; }
      
-        public string Email { get; set; }
+    //    public string Email { get; set; }
 
-        public string Phone { get; set; }
+    //    public string Phone { get; set; }
 
-        public List<Venue> Venues { get; set; }
+    //    public List<Venue> Venues { get; set; }
 
-        public List<Event> Events { get; set; }
-    }
+    //    public List<Event> Events { get; set; }
+    //}
 }

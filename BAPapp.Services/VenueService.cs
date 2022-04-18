@@ -17,15 +17,16 @@ namespace BAPapp.Services
         {
             _userId = userId;
         }
-                //create
+        
+        //create
         public bool CreateVenue(VenueCreate model)
         {
             Venue entity = new Venue
             {
-             
+                VenueId = model.VenueId,
                 VenueName = model.VenueName,
                 VenueLocation = model.VenueLocation,
-                PointOfContact = model.PointOfContact
+                
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -35,7 +36,7 @@ namespace BAPapp.Services
         }
 
         //get all
-        public IEnumerable<VenueListItem> GetVenues()
+        public IEnumerable<VenueListItem> GetVenueList()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -47,10 +48,10 @@ namespace BAPapp.Services
                           v =>
                               new VenueListItem
                               {
-                                  
+                                  VenueId = v.VenueId,
                                   VenueName = v.VenueName,
                                   VenueLocation = v.VenueLocation,
-                                  PointOfContact = v.PointOfContact
+                                  
                               });
                 return query.ToArray();
             }
@@ -67,11 +68,10 @@ namespace BAPapp.Services
                 return
                        new VenueDetail
                        {
-                           
+                           VenueId = entity.VenueId,
                            VenueName = entity.VenueName,
                            VenueLocation = entity.VenueLocation,
-                           PointOfContact = entity.PointOfContact,
-
+                           
                        };
             }
         
@@ -85,10 +85,10 @@ namespace BAPapp.Services
                             .Venues
                             .Single(v => v.VenueName == model.VenueName && v.OwnerId == _userId);
 
-                
+                entity.VenueId = model.VenueId;
                 entity.VenueName = model.VenueName;
                 entity.VenueLocation = model.VenueLocation;
-                entity.PointOfContact = model.PointOfContact;
+                
 
                 return ctx.SaveChanges() == 1;
             }
@@ -111,17 +111,17 @@ namespace BAPapp.Services
         }
 
         //will implement later
-        public void AddCrewerToVenue(int crewerId, int venueId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var foundCrewer = ctx.Crewers.Single(c => c.CrewerId == crewerId);
-                var foundVenue = ctx.Venues.Single(v => v.VenueId == venueId);
-                foundVenue.Crewers.Add(foundCrewer);
-                var testing = ctx.SaveChanges();
+        //public void AddCrewerToVenue(int crewerId, int venueId)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var foundCrewer = ctx.Crewers.Single(c => c.CrewerId == crewerId);
+        //        var foundVenue = ctx.Venues.Single(v => v.VenueId == venueId);
+        //        foundVenue.Crewers.Add(foundCrewer);
+        //        var testing = ctx.SaveChanges();
 
-            }
-        }
+        //    }
+        //}
 
     }
 }

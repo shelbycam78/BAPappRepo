@@ -28,12 +28,9 @@ namespace BAPapp.Services
                     EventDate = model.EventDate,
                     EventTitle = model.EventTitle,
                     VenueId = model.VenueId,
-                    Position = model.Position,
-                    Director = model.Director,
-                    Producer = model.Producer,
+                    //ClientId = model.ClientId,
                     IsPaid = model.IsPaid,
-                    IsTaxed = model.IsTaxed,
-                    IsDirectDeposit = model.IsDirectDeposit,
+                   
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -56,8 +53,9 @@ namespace BAPapp.Services
                                         
                                         EventDate = e.EventDate,
                                         EventTitle = e.EventTitle,
+                                        IsPaid = e.IsPaid,
                                         VenueId = e.VenueId,
-
+                                        //ClientId = e.ClientId,
                                     });
                 return query.ToArray();
             }
@@ -76,12 +74,10 @@ namespace BAPapp.Services
                         
                         EventDate = entity.EventDate,
                         EventTitle = entity.EventTitle,
-                        Position = entity.Position,
-                        Director = entity.Director,
-                        Producer = entity.Producer,
                         IsPaid = entity.IsPaid,
-                        IsTaxed = entity.IsTaxed,
-                        IsDirectDeposit = entity.IsDirectDeposit,
+                        VenueId = entity.VenueId,
+                        //ClientId = entity.ClientId,
+                       
                     };        
             }
         
@@ -98,14 +94,9 @@ namespace BAPapp.Services
                 
                 entity.EventDate = model.EventDate;
                 entity.EventTitle = model.EventTitle;
-                entity.VenueId = model.VenueId;
-                
-                entity.Position = model.Position;
-                entity.Director = model.Director;
-                entity.Producer = model.Producer;
                 entity.IsPaid = model.IsPaid;
-                entity.IsTaxed = model.IsTaxed;
-                entity.IsDirectDeposit = model.IsDirectDeposit;
+                entity.VenueId = model.VenueId;
+                //entity.ClientId = model.ClientId;
 
                 return ctx.SaveChanges() == 1;
             }

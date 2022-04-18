@@ -18,7 +18,7 @@ namespace BAPapp.WebMVC.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new VenueService(userId);
-            var model = service.GetVenues();
+            var model = service.GetVenueList();
             
       
             return View(model);
@@ -26,6 +26,7 @@ namespace BAPapp.WebMVC.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.Title = "New Venue";
             return View();
         }
         //POST:  Crewer
@@ -66,7 +67,7 @@ namespace BAPapp.WebMVC.Controllers
         }
 
         //GET:  Edit
-        //Crewer/Edit/CrewerId
+        //Venue/Edit/VenueId
         public ActionResult Edit(string venueName)
         {
             var service = CreateVenueService();
@@ -74,10 +75,10 @@ namespace BAPapp.WebMVC.Controllers
             var model =
                 new VenueEdit
                 {
-                    
+                    VenueId = detail.VenueId,
                     VenueName = detail.VenueName,
                     VenueLocation = detail.VenueLocation,
-                    PointOfContact = detail.PointOfContact,
+                    
                 };
             return View(model);
         }
@@ -106,24 +107,24 @@ namespace BAPapp.WebMVC.Controllers
 
         }
         //GET:  Delete
-        //Crewer/Delete/CrewerId
-        public ActionResult Delete(string name)
+        //Venue/Delete/VenueId
+        public ActionResult Delete(string venueName)
         {
             var svc = CreateVenueService();
-            var model = svc.GetVenueByName(name);
+            var model = svc.GetVenueByName(venueName);
 
             return View(model);
         }
 
         //POST: Delete
-        //Crewer/Delete/CrewerId
+        //Venue/Delete/VenueId
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteVenue(string name)
+        public ActionResult DeleteVenue(string venueName)
         {
             var service = CreateVenueService();
 
-            service.DeleteVenue(name);
+            service.DeleteVenue(venueName);
 
             TempData["SeveResult"] = "The venue was deleted";
 

@@ -12,10 +12,16 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.EventId)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.EventDate)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.EventTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsPaid)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.VenueId)
@@ -24,22 +30,28 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VenueId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.EventId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EventDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EventTitle)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IsPaid)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.VenueId)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { eventId = item.EventId }) |
+        @Html.ActionLink("Details", "Details", new { eventId = item.EventId }) |
+        @Html.ActionLink("Delete", "Delete", new { eventId = item.EventId })
+    </td>
+</tr>
 }
 
 </table>
