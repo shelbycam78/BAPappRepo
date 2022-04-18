@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client.cs" />
     <Compile Include="Crewer.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="IdentityModels.cs" />

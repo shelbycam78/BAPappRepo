@@ -54,10 +54,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Crewer\CrewerEdit.cs" />
-    <Compile Include="Crewer\CrewerCreate.cs" />
-    <Compile Include="Crewer\CrewerDetail.cs" />
-    <Compile Include="Crewer\CrewerListItem.cs" />
+    <Compile Include="Client\ClientCreate.cs" />
+    <Compile Include="Client\ClientDetail.cs" />
+    <Compile Include="Client\ClientEdit.cs" />
+    <Compile Include="Client\ClientListItem.cs" />
+    <Compile Include="crewer\CrewerEdit.cs" />
+    <Compile Include="crewer\CrewerCreate.cs" />
+    <Compile Include="crewer\CrewerDetail.cs" />
+    <Compile Include="crewer\CrewerListItem.cs" />
     <Compile Include="Event\EventCreate.cs" />
     <Compile Include="Event\EventDetail.cs" />
     <Compile Include="Event\EventEdit.cs" />
